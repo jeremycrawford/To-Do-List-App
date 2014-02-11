@@ -52,10 +52,10 @@
                     <div class="input-group">
                         <input type="text" class="form-control js-new-todo-input new-todo-input">
                         <span class="input-group-btn">
-                        <button class="btn btn-default js-add-todo add-todo" type="button">Add</button>
+                        <button class="btn btn-default js-add-button add-button" type="button">Add</button>
                         </span>
                     </div><!-- /input-group -->
-                    <div class="todo-items"></div><!-- The style is set and will be removed once javascript is set. -->
+                    <div class="todo-items js-todo-items"></div><!-- The style is set and will be removed once javascript is set. -->
                 </div>
             </div>
 
@@ -67,7 +67,7 @@
 
         <!-- Here is my template -->
         <script type="text/template" class="todo-template">
-            <div class="newbox">
+            <div class="newbox" id="<%= id %>">
                     <button type="button" class="btn btn-default btn-lg edit-button">
                       <span class="glyphicon glyphicon-pencil"></span>
                     </button>
@@ -75,7 +75,7 @@
                       <span class="glyphicon glyphicon-ok-circle done-button"></span>
                     </button>
                     <div class="newbox-description">
-                        <h1>Go Shopping</h1>
+                        <h1><%= description %></h1>
                     </div>
                     <button type="button" class="btn btn-default btn-lg remove-button pull-right">
                       <span class="glyphicon glyphicon-remove-circle remove-button"></span>

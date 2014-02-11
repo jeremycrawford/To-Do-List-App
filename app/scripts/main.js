@@ -1,3 +1,63 @@
+console.log("WELCOME TO THE APP!!!");
+
+var thingsToDo = [
+  {
+    description: 'Pick up dinner',
+    done: false,  
+    id: _.uniqueId('todo')
+  },
+  {
+    description: 'Study JavaScript',
+    done: false,  
+    id: _.uniqueId('todo')
+  },
+  {
+    description: 'Learn Everything',
+    done: false,  
+    id: _.uniqueId('todo')
+  },
+];
+
+//////////////// THIS IS MY ADD SECTION
+
+// This refers to the template.
+var superAwesomeTemplate = _.template($(".todo-template").text());
+
+_.each(thingsToDo, function(itemsInside){
+  $('.js-todo-items').prepend(superAwesomeTemplate(itemsInside));
+
+})
+
+
+$(".js-add-button").on('click', function(){
+
+// This variable pulls the data from the users input.
+  var descriptionData = $(".js-new-todo-input").val();
+
+// Push the users data into an object and create a uniqueId.
+  var todo = {
+    description: descriptionData,
+    done: false,  
+    id: _.uniqueId('todo')
+  }
+
+// This variable gets template ready with user data.
+var userdataTemplate = superAwesomeTemplate(todo);
+
+$('.js-todo-items').prepend(userdataTemplate);
+
+(thingsToDo).push(todo)
+});
+
+//////////////// THIS IS MY REMOVE SECTION
+
+// This refers to the template.
+var superAwesomeTemplate = _.template($(".todo-template").text());
+
+$(".remove-button").on('click', function(){
+    $(this).parent().remove();
+})
+
 
 
 
