@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Mocha Spec Runner</title>
+    <link rel="stylesheet" href="bower_components/mocha/mocha.css">
+</head>
+<body>
+    <div id="mocha"></div>
+
+    <div class="container">
+        <div class="header">
+            <ul class="nav nav-pills pull-right">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <h3 class="text-muted">genius level todo</h3>
+        </div>
+
+        <div class="row">
+            <div class="app col-md-6 col-md-offset-3">
+                <div class="input-group">
+                  <input type="text" class="form-control js-new-todo-input new-todo-input">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default js-add-todo add-todo" type="button">Add</button>
+                  </span>
+                </div><!-- /input-group -->
+                <div class="todo-items"></div>
+
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>♥ from the Yeoman team</p>
+        </div>
+
+    </div>
+
+    <!-- My way cool todo template -->
+    <script type="text/template" class="todo-template">
+        <div class="todo-item" id="todo-<%= id %>">
+            <div class="description">
+                <span class="id">#<%= id %></span>
+                <%= description %>
+            </div>
+            <button type="button" class="btn btn-default">
+              <span class="glyphicon glyphicon-ok"></span>
+            </button>
+
+            <button type="button" class="btn btn-default">
+              <span class="glyphicon glyphicon-pencil"></span>
+            </button>
+
+            <button type="button" class="btn btn-default js-remove-todo">
+              <span class="glyphicon glyphicon-remove"></span>
+            </button>
+        </div>
+    </script>
+    <!-- end my way cool todo template -->
+
+    
+    <script src="bower_components/mocha/mocha.js"></script>
+    <script>mocha.setup('bdd')</script>
+    <script src="bower_components/chai/chai.js"></script>
+    <script>
+        var assert = chai.assert;
+        var expect = chai.expect;
+        var should = chai.should();
+    </script>
+
+    <!-- include source files here... -->
+    <script src="bower_components/jquery/jquery.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
+
+    <script src="scripts/main.js"></script>
+
+
+    <!-- include spec files here... -->
+    <script src="spec/test.js"></script>
+
+    <script>mocha.run()</script>
+</body>
+</html>
