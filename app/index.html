@@ -30,19 +30,19 @@
 
         <div class="background-header">
             <h3 class="text-muted pull-left">THE TO-DO APP</h3>
-            <ul class="nav nav-pills pull-right new-style">
+            <!-- <ul class="nav nav-pills pull-right new-style">
                 <li class="active"><a href="#">Home</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Contact</a></li>
-            </ul>
+            </ul> -->
         </div>
         <div class="container">
             <div class="header">
-                <!-- <ul class="nav nav-pills pull-right">
+                <ul class="nav nav-pills nav-pills-style pull-right">
                     <li class="active"><a href="#">Home</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Contact</a></li>
-                </ul> -->
+                </ul>
 <!--                 <h3 class="text-muted">THE TO-DO APP</h3> -->
             </div>
 
@@ -55,7 +55,7 @@
                         <button class="btn btn-default js-add-todo add-todo" type="button">Add</button>
                         </span>
                     </div><!-- /input-group -->
-                    <div class="todo-items"></div>
+                    <div class="todo-items"></div><!-- The style is set and will be removed once javascript is set. -->
                 </div>
             </div>
 
@@ -65,28 +65,23 @@
 
         </div>
 
-
-        <!-- Template -->
+        <!-- Here is my template -->
         <script type="text/template" class="todo-template">
-            <div class="todo-item" id="todo-<%= id %>">
-                <div class="description">
-                    <span class="id">#<%= id %></span>
-                    <%= description %>
-                </div>
-                <button type="button" class="btn btn-default">
-                  <span class="glyphicon glyphicon-ok"></span>
-                </button>
-
-                <button type="button" class="btn btn-default">
-                  <span class="glyphicon glyphicon-pencil"></span>
-                </button>
-
-                <button type="button" class="btn btn-default js-remove-todo">
-                  <span class="glyphicon glyphicon-remove"></span>
-                </button>
+            <div class="newbox">
+                    <button type="button" class="btn btn-default btn-lg edit-button">
+                      <span class="glyphicon glyphicon-pencil"></span>
+                    </button>
+                    <button type="button" class="btn btn-default btn-lg done-button">
+                      <span class="glyphicon glyphicon-ok-circle done-button"></span>
+                    </button>
+                    <div class="newbox-description">
+                        <h1>Go Shopping</h1>
+                    </div>
+                    <button type="button" class="btn btn-default btn-lg remove-button pull-right">
+                      <span class="glyphicon glyphicon-remove-circle remove-button"></span>
+                    </button>
             </div>
         </script>
-        <!-- End Template -->
 
 
         <!-- build:js scripts/vendor.js -->

@@ -58,7 +58,10 @@ body {
 
 .header {
     padding-bottom: 90px;
-    // border-bottom: 1px solid #e5e5e5;
+
+    .nav-pills-style {
+    background: none;
+    }
 
     /* Make the masthead heading the same height as the navigation */
 }
@@ -159,6 +162,7 @@ body {
                 border: none;
             }
 
+
             .description {
                 width: 50%;
                 display: inline-block;
@@ -173,5 +177,64 @@ body {
                 vertical-align: top;
             }
         }
+
+            .newbox {
+                color: rgba(0, 0, 0, .5);
+                text-transform: uppercase;
+                font-size: 16px;
+                border-top: 1px solid #acacac;
+                padding: 10px;
+
+                    .newbox-description {
+                        margin: 0;
+                        display: inline-block;
+
+                        h1 {
+                            margin: 0;
+                            padding-left: 4px;
+                            display: inline-block;
+                            color: rgba(0, 0, 0, .5);
+                            text-transform: uppercase;
+                            font-size: 16px;
+                        }
+                    }
+
+                        .edit-button {
+                            color: rgba(0, 0, 0, .5);
+                            font-size: 16px;
+                            padding: 2px;
+                            background: none;
+                            border: none;
+
+                            &:hover {
+                                color: rgb(232, 157, 53);
+                            }
+                        }
+
+                        .done-button {
+                            color: rgba(0, 0, 0, .5);
+                            padding: 2px;
+                            background: none;
+                            border: none;
+
+                            &:hover {
+                                color: rgb(107, 195, 111);
+                            }
+
+                        }
+
+                        .remove-button {
+                            color: rgba(0, 0, 0, .5);
+                            padding: 2px;
+                            background: none;
+                            border: none;
+
+                            &:hover {
+                                color: rgb(213, 92, 75);
+                            }
+                        }
+                    
+            }    
+
     }
 }
