@@ -18,14 +18,6 @@ module.exports = function (grunt) {
     // Define the configuration for all the tasks
     grunt.initConfig({
 
-                    'images/{,*/}*.webp',
-                    '{,*/}*.html',
-                    'styles/fonts/{,*/}*.*',
-                    'bower_components/sass-bootstrap/fonts/*.*'
-                ]
-            }]
-        },
-
         // Project settings
         yeoman: {
             // Configurable paths
@@ -314,7 +306,7 @@ module.exports = function (grunt) {
                         'images/{,*/}*.webp',
                         '{,*/}*.html',
                         'styles/fonts/{,*/}*.*',
-                        'bower_components/' + (this.includeCompass ? 'sass-' : '') + 'bootstrap/' + (this.includeCompass ? 'fonts/' : 'dist/fonts/') +'*.*'
+                        'bower_components/sass-bootstrap/fonts/*.*'
                     ]
                 }]
             },

@@ -18,15 +18,26 @@ var thingsToDo = [
   },
 ];
 
-//////////////// THIS IS MY ADD SECTION
+
+
+
+
+
 
 // This refers to the template.
 var superAwesomeTemplate = _.template($(".todo-template").text());
 
 _.each(thingsToDo, function(itemsInside){
   $('.js-todo-items').prepend(superAwesomeTemplate(itemsInside));
+});
 
-})
+
+
+
+
+//////////////// THIS IS MY ADD BUTTON ///////////////////////
+
+
 
 
 $(".js-add-button").on('click', function(){
@@ -49,14 +60,27 @@ $('.js-todo-items').prepend(userdataTemplate);
 (thingsToDo).push(todo)
 });
 
-//////////////// THIS IS MY REMOVE SECTION
 
-// This refers to the template.
-var superAwesomeTemplate = _.template($(".todo-template").text());
 
-$(".remove-button").on('click', function(){
-    $(this).parent().remove();
-})
+
+
+//////////////// THIS IS MY REMOVE BUTTON ///////////////////////
+
+
+
+
+
+$('.js-todo-items').on('click', ".remove-button", function(){
+
+    // var descriptionData = $(this).parent().attr('id');
+
+    // thingsToDo = _reject(thingsToDo, function(itemsInside){
+    //   return itemsInside.id = descriptionData;
+    // });
+
+
+    $(this).parent(".newbox").remove();
+});
 
 
 

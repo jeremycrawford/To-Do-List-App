@@ -42,7 +42,8 @@ body {
     background-color: rgba(0, 0, 0, .5);
 
     h3 {
-
+        font-weight: 100;
+        letter-spacing: 2px;
         color: rgba(255, 255, 255, .8);
         margin-left: 25px;
         margin-top: 24px;
@@ -128,25 +129,27 @@ body {
     @include border-radius(6px);
 
     .new-todo-input {
-        background: rgba(255, 255, 255, .8);
+        background: rgba(255, 255, 255, .7);
         font-family: inherit;
-        font-size: 23px;
+        font-weight: 300;
+        font-size: 16px;
+        text-transform: uppercase;
         line-height: inherit;
         width: 100%;
         padding: 20px 10px;
-        color: rgb(160, 160, 160);
+        color: rgba(0, 0, 0, .5);
         @include border-radius(6px 6px 0 0);
     }
 
     .add-button {
         padding: 10px;
         color: #fff;
-        background: rgb(49, 165, 202);
+        background: rgba(52, 73, 94, .7);
         @include border-radius(0 6px 0 0);
     }
 
     .todo-items {
-        background: rgba(255, 255, 255, .8);
+        background: rgba(255, 255, 255, .7);
         // border: 1px solid #acacac;
         border-top: none;
         @include border-radius(0 0 6px 6px);
@@ -169,7 +172,7 @@ body {
                 overflow: hidden;
 
                 .id {
-                    color: rgba(0, 0, 0, .5);
+                    color: rgba(0, 0, 0, .1);
                 }
             }
 
@@ -190,47 +193,58 @@ body {
                         display: inline-block;
 
                         h1 {
+                            position: relative;
+                            font-weight: 500;
                             margin: 0;
                             padding-left: 4px;
                             display: inline-block;
                             color: rgba(0, 0, 0, .5);
                             text-transform: uppercase;
                             font-size: 16px;
+                            top: 1.5px;
                         }
                     }
 
                         .edit-button {
-                            color: rgba(0, 0, 0, .5);
+                            position: relative;
+                            color: rgba(52, 73, 94, .7);
                             font-size: 16px;
                             padding: 2px;
                             background: none;
                             border: none;
+                            top: 2px;
 
                             &:hover {
-                                color: rgb(232, 157, 53);
+
+                                color: rgba(52, 73, 94, 1);
                             }
                         }
 
                         .done-button {
+                            position: relative;
                             color: rgba(0, 0, 0, .5);
                             padding: 2px;
                             background: none;
                             border: none;
+                            top: 1px;
 
                             &:hover {
-                                color: rgb(107, 195, 111);
+                                color: rgba(22, 160, 133, .8);
                             }
 
                         }
 
                         .remove-button {
-                            color: rgba(0, 0, 0, .5);
+                            position: relative;
+                            color: rgba(192, 57, 43, .5);
                             padding: 2px;
+                            font-size: 18px;
                             background: none;
                             border: none;
+                            top: 1px;
 
                             &:hover {
-                                color: rgb(213, 92, 75);
+                                color: rgba(192, 57, 43, 1);
                             }
                         }
                     
