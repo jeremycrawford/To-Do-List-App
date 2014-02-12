@@ -18,6 +18,14 @@ module.exports = function (grunt) {
     // Define the configuration for all the tasks
     grunt.initConfig({
 
+                    'images/{,*/}*.webp',
+                    '{,*/}*.html',
+                    'styles/fonts/{,*/}*.*',
+                    'bower_components/sass-bootstrap/fonts/*.*'
+                ]
+            }]
+        },
+
         // Project settings
         yeoman: {
             // Configurable paths
