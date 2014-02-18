@@ -63,29 +63,33 @@
 
         </div>
 
-        <!-- Here is my template -->
+        <!-- Here is my main template -->
         <script type="text/template" class="todo-template">
             <div class="newbox" id="<%= id %>">
                     <button type="button" class="btn btn-default btn-lg edit-button">
                       <span class="glyphicon glyphicon-pencil"></span>
                     </button>
-                    <button type="button" class="btn btn-default btn-lg done-button">
-                      <span class="glyphicon glyphicon-ok-circle done-button"></span>
+                    <button type="button" class="btn btn-default btn-lg done-button js-done-button">
+                      <span class="glyphicon glyphicon-ok-circle"></span>
                     </button>
                     <div class="newbox-description">
+                        <input class="edit-input" placeholder="<%= description %>">
                         <h1><%= description %></h1>
                     </div>
-                    <button type="button" class="btn btn-default btn-lg remove-button pull-right">
-                      <span class="glyphicon glyphicon-remove-circle remove-button"></span>
+                    <button type="button" class="btn btn-default btn-lg remove-button js-remove-button pull-right">
+                      <span class="glyphicon glyphicon-remove-circle"></span>
                     </button>
             </div>
         </script>
+
+
 
 
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
         <script src="bower_components/jquery/jquery.js"></script>
         <script src="bower_components/underscore/underscore.js"></script>
+        <script src="bower_components/backbone/backbone.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
 

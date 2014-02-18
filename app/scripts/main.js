@@ -1,4 +1,4 @@
-console.log("WELCOME TO THE APP!!!");
+console.log("WELCOME TO THE TO-DO LIST!!!");
 
 var thingsToDo = [
   {
@@ -27,8 +27,8 @@ var thingsToDo = [
 // This refers to the template.
 var superAwesomeTemplate = _.template($(".todo-template").text());
 
-_.each(thingsToDo, function(itemsInside){
-  $('.js-todo-items').prepend(superAwesomeTemplate(itemsInside));
+_.each(thingsToDo, function(everything){
+  $('.js-todo-items').prepend(superAwesomeTemplate(everything));
 });
 
 
@@ -43,11 +43,11 @@ _.each(thingsToDo, function(itemsInside){
 $(".js-add-button").on('click', function(){
 
 // This variable pulls the data from the users input.
-  var descriptionData = $(".js-new-todo-input").val();
+  var newDescriptionData = $(".js-new-todo-input").val();
 
 // Push the users data into an object and create a uniqueId.
   var todo = {
-    description: descriptionData,
+    description: newDescriptionData,
     done: false,  
     id: _.uniqueId('todo')
   }
@@ -70,13 +70,13 @@ $('.js-todo-items').prepend(userdataTemplate);
 
 
 
-$('.js-todo-items').on('click', ".remove-button", function(){
+$('.js-todo-items').on('click', ".js-remove-button", function(){
 
-    // var descriptionData = $(this).parent().attr('id');
+    var descriptionData = $(this).parent().attr('id');
 
-    // thingsToDo = _reject(thingsToDo, function(itemsInside){
-    //   return itemsInside.id = descriptionData;
-    // });
+    thingsToDo = _.reject(thingsToDo, function(itemsInside){
+      return itemsInside.id == descriptionData;
+    });
 
 
     $(this).parent(".newbox").remove();
@@ -86,153 +86,60 @@ $('.js-todo-items').on('click', ".remove-button", function(){
 
 
 
+//////////////// THIS IS MY DONE BUTTON ///////////////////////
 
 
 
 
+$('.js-todo-items').on('click', ".done-button", function(){
 
+    $(this).toggleClass('done');
+    console.log("toggleClass is working.");
 
+    var descriptionData = $(this).parent().attr('id');
+    console.log('descriptionData is defined');
+    var finishedItem = _.findWhere(thingsToDo, function(item){
+      return item.id == descriptionData
+    });
+    console.log('finishedItem is defined.');
+    newStatus = !finishedItem.done;
+    console.log('Got the done status');
+    finishedItem.done = newStatus;
+    console.log('Changed the status.')
 
+    $(this).siblings(".newbox-description").toggleClass('done');
+    console.log("toggleClass is working.");
+});
 
 
 
 
 
+//////////////// THIS IS MY EDIT BUTTON ///////////////////////
 
 
 
 
 
 
+$('.js-todo-items').on('click', '.edit-button', function(){
 
+    $(this).siblings('.newbox-description').children('.edit-input').css("visibility", "visible");
 
+    $(this).siblings('.newbox-description').children('.edit-input').focus();
 
+  });
 
+  $('.js-todo-items').on('blur', '.edit-input', function(){
+      var parentId = $(this).parents('.newbox').attr('id');
+      var newDescription = $(this).val();
+      var item = _.findWhere(thingsToDo, {id: parentId});
 
+      item.description = newDescription
 
+    $(this).siblings('h1').text(newDescription); 
 
+    $(this).css("visibility", "hidden");
+      console.log(this);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// console.log('This is fun!!!');
-
-// var todoList = [
-//   {
-//     description: 'Get groceries',
-//     done: false,
-//     id: _.uniqueId()
-//   },
-//   {
-//     description: 'Leap',
-//     done: true,
-//     id: _.uniqueId()
-//   },
-//   {
-//     description: 'Pet the dog',
-//     done: false,
-//     id: _.uniqueId()
-//   }
-// ]
-
-
-// $(document).ready(function(){
-
-//   var todoTemplate = _.template($('.todo-template').text())
-
-//   // render preloaded data
-//   _.each(todoList, function(item){
-//     $('.todo-items').prepend( todoTemplate(item) )
-//   })
-
-//   $('.todo-items').on('click', '.js-remove-todo', function(){
-//     var parentId = $(this).parent().attr('id').split('-')[1];
-
-//     console.log('about to remove todo #',parentId)
-//     console.log('before removing, todoList.length is',todoList.length)
-
-//     todoList = _.reject(todoList, function(item){ 
-//       return item.id == parentId;
-//     })
-
-//     $(this).parent().remove();
-
-//     console.log('after removing, todoList.length is',todoList.length)
-
-//   })
-
-//   // Setup Add Button click event
-//   $('.js-add-todo').click(function(){
-
-//     // grab the description from the input
-//     var description = $('.js-new-todo-input').val();
-
-//     // create an object literal with the description
-//     // and 'done' set to false
-//     var todo = {
-//       description: description,
-//       done: false,
-//       id: _.uniqueId()
-//     }
-
-//     // store the rendered template string
-//     var renderedTemplate = todoTemplate(todo);
-
-//     // now prepend the template into the dom
-//     $('.todo-items').prepend(renderedTemplate);
-//   })
-
-
-
-//   // Check off button click event
-//   $('.js-add-todo').click(function(){
-
-//     // grab the description from the input
-//     var description = $('.js-new-todo-input').val();
-
-//     // create an object literal with the description
-//     // and 'done' set to false
-//     var todo = {
-//       description: description,
-//       done: false,
-//       id: _.uniqueId()
-//     }
-
-//     // store the rendered template string
-//     var renderedTemplate = todoTemplate(todo);
-
-//     // now prepend the template into the dom
-//     $('.todo-items').prepend(renderedTemplate);
-//   })
-
-// });
+  });

@@ -188,11 +188,31 @@ body {
                 border-top: 1px solid #acacac;
                 padding: 10px;
 
+                .edit-input {
+                    color: rgba(0, 0, 0, .5);
+                    font-size: 16px;
+                    visibility: hidden;
+                    text-transform: uppercase;
+                    position: absolute;
+                    border: none;
+                    z-index: 5;
+                    background: rgb(255, 255, 255);
+                    border-radius: 5px;
+                    height: 30px;
+                    width:  350px;
+                }
+
+                &:hover {
+                    background: rgba(255, 255, 255, .5);
+                }
+
                     .newbox-description {
                         margin: 0;
                         display: inline-block;
 
                         h1 {
+                            width: 325px;
+                            overflow: hidden;
                             position: relative;
                             font-weight: 500;
                             margin: 0;
@@ -202,6 +222,14 @@ body {
                             text-transform: uppercase;
                             font-size: 16px;
                             top: 1.5px;
+                        }
+                            
+                        &.done {
+
+                            h1 {
+                                text-decoration: line-through;
+                                color: rgba(0, 0, 0, .2);
+                            }
                         }
                     }
 
@@ -218,6 +246,10 @@ body {
 
                                 color: rgba(52, 73, 94, 1);
                             }
+
+                            &.done {
+                                color: rgba(22, 160, 133, .8);
+                            }
                         }
 
                         .done-button {
@@ -229,6 +261,10 @@ body {
                             top: 1px;
 
                             &:hover {
+                                color: rgba(22, 160, 133, .8);
+                            }
+
+                            &.done {
                                 color: rgba(22, 160, 133, .8);
                             }
 
@@ -247,7 +283,6 @@ body {
                                 color: rgba(192, 57, 43, 1);
                             }
                         }
-                    
             }    
 
     }
